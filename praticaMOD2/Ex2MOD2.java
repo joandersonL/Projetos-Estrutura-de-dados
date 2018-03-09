@@ -1,4 +1,5 @@
 
+
 // A classe DutchFlag a ser completada
 class DutchFlag {
 
@@ -7,7 +8,8 @@ class DutchFlag {
     }
 
     static void dutch_flag(int[] a) {
-        // a ser completada
+       
+// a ser completada
     }
 
 }
