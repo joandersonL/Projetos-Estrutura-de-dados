@@ -26,25 +26,30 @@ class Mergesort {
         int fiml2 = l2.size();
         int inicio = 0;
 
-        for (int i = inicio, j = inicio, k = inicio; k < (fiml1 + fiml2 - 1); k++) {
+        int i = inicio, j = inicio, k = inicio;
+        while (k < (fiml1 + fiml2 - 1)) {
             if (i >= l1.size()) {
                 listaNova.add(l2.get(j));
                 j++;
+                k++;
             } else if (j >= l2.size()) {
                 listaNova.add(l1.get(i));
                 i++;
+                k++;
+            } else if (l1.get(i) < l2.get(j)) {
+                listaNova.add(l1.get(i));
+                i++;
+                k++;
             } else {
-                if (l1.get(i) < l2.get(j)) {
-                    listaNova.add(l1.get(i));
-                    i++;
-                } else {
-                    listaNova.add(l2.get(j));
-                    j++;
-                }
+                listaNova.add(l2.get(j));
+                j++;
+                k++;
             }
         }
         return listaNova;
     }
+
+    
 
     static LinkedList<Integer> mergesort(LinkedList<Integer> l) {
         if (l.size() > 1) {
