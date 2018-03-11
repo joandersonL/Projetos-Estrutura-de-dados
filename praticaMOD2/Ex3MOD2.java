@@ -1,21 +1,21 @@
-
-// Classe Quicksort a ser completada
 class Quicksort {
 
     static void swap(int[] a, int i, int j) {
-        // a ser completada
+       int auxiliar = a[i];
+       a[i] = a[j];
+       a[j]= auxiliar;
     }
 
     static int partition(int[] a, int l, int r) {
-        return 0; // a ser completada
+        return 0;
     }
 
     static void quickrec(int[] a, int l, int r) {
-        // a ser completada
+       
     }
 
     static void quicksort(int[] a) {
-        // a ser completada
+       
     }
 
 }
