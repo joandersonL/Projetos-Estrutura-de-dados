@@ -20,7 +20,7 @@ class Quicksort {
 
 }
 
-// A classe Ex3 é fornecida, para testar o código de Quicksort
+
 class Ex3 {
     static boolean is_sorted(int[] a) {
         for (int i = 1; i < a.length; i++)
@@ -28,7 +28,7 @@ class Ex3 {
         return true;
     }
 
-    static final int M = 10; // os elementos estão entre 0..M-1
+    static final int M = 10; 
 
     static int[] occurrences(int[] a) {
         int[] occ = new int[M];
