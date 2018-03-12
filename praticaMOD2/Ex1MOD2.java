@@ -4,7 +4,7 @@ import java.util.LinkedList;
 class Mergesort {
 
     static void split(LinkedList<Integer> l, LinkedList<Integer> l1, LinkedList<Integer> l2) {
-        int fim = l.size() - 1;
+        int fim = l.size();
         int meio = l.size() / 2;
         int inicio = 0;
 
@@ -12,7 +12,7 @@ class Mergesort {
             l1.add(l.get(i));
         }
 
-        for (int j = meio; j <= fim; j++) {
+        for (int j = meio; j < fim; j++) {
             l2.add(l.get(j));
         }
 
@@ -27,7 +27,8 @@ class Mergesort {
         int inicio = 0;
 
         int i = inicio, j = inicio, k = inicio;
-        while (k < (fiml1 + fiml2 - 1)) {
+        
+        while (k < (fiml1 + fiml2)) {
             if (i >= l1.size()) {
                 listaNova.add(l2.get(j));
                 j++;
