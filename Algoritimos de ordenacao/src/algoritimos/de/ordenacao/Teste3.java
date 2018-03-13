@@ -1,6 +1,8 @@
-package projeto2ed;
+package algoritimos.de.ordenacao;
 
-public class EX3 {
+public class Teste3 {
+
+
     static boolean is_sorted(int[] a) {
         for (int i = 1; i < a.length; i++)
             if (!(a[i-1] <= a[i])) return false;
@@ -82,5 +84,5 @@ public class EX3 {
                 test(random_array(len));
         System.out.println("SUCESSO");
     }
-
+    
 }

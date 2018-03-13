@@ -1,4 +1,4 @@
-package projeto2ed;
+package algoritimos.de.ordenacao;
 
 public class Quicksort {
     static void swap(int[] a,int i,int j){

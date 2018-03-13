@@ -1,10 +1,8 @@
-package projeto2ed;
+package algoritimos.de.ordenacao;
 
 import java.util.LinkedList;
 
-
-
-public class Projeto2ED {
+public class Teste1 {
 
 static boolean is_sorted(LinkedList<Integer> l) {
         int v = Integer.MIN_VALUE;
@@ -126,8 +124,5 @@ static boolean is_sorted(LinkedList<Integer> l) {
         }
         System.out.println("SUCESSO");
     }
-
-
-
     
 }
