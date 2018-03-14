@@ -1,28 +1,59 @@
 
-
 // A classe DutchFlag a ser completada
 class DutchFlag {
 
     static void swap(int[] a, int i, int j) {
-        // a ser completada
+        int auxiliar = a[i];
+        a[i] = a[j];
+        a[j] = auxiliar;
     }
 
     static void dutch_flag(int[] a) {
-       
-// a ser completada
+        int b = 0;
+        int i = 0;
+        int r = a.length - 1;
+        int n = a.length;
+
+        while (b < n && a[i] == 0) {
+            b++;
+            i++;
+        }
+        while (i < n && a[i] == 1) {
+            i++;
+        }
+        while (r >= 0 && a[r] == 2) {
+            r--;
+        }
+        while (i <= r) {
+            switch (a[i]) {
+            case 0:
+                swap(a, i, b);
+                b++;
+                i++;
+                break;
+            case 2:
+                swap(a, i, r);
+                r--;
+                break;
+            default:
+                i++;
+                break;
+            }
+        }
     }
 
 }
 
-// A classe Ex2 é fornecida, para testar o código de DutchFlag
-class Ex2 {
+//classe para teste
+class Ex2MOD2 {
     static boolean is_sorted(int[] a) {
         for (int i = 1; i < a.length; i++)
-            if (!(a[i-1] <= a[i])) return false;
+            if (!(a[i - 1] <= a[i]))
+                return false;
         return true;
     }
 
-    static final int M = 3; // os elementos estão entre 0..2
+    static final int M = 3; // os elementos estao entre 0..2
 
     static int[] occurrences(int[] a) {
         int[] occ = new int[M];
@@ -33,7 +64,8 @@ class Ex2 {
 
     static boolean is_permut(int[] occ1, int[] occ2) {
         for (int i = 0; i < M; i++)
-            if (occ1[i] != occ2[i]) return false;
+            if (occ1[i] != occ2[i])
+                return false;
         return true;
     }
 
@@ -48,7 +80,7 @@ class Ex2 {
         int[] old = a.clone();
         System.out.println("            a = " + print(a));
         DutchFlag.swap(a, i, j);
-        System.out.println("  swap(a,"+i+","+j+") = " + print(a));
+        System.out.println("  swap(a," + i + "," + j + ") = " + print(a));
         for (int k = 0; k < a.length; k++) {
             int l = k == i ? j : k == j ? i : k;
             if (a[k] != old[l]) {
@@ -87,7 +119,7 @@ class Ex2 {
             for (int j = 0; j <= len; j++) {
                 int[] a = new int[len];
                 for (int i = 0; i < len; i++)
-                    a[i] = (int)(M * Math.random());
+                    a[i] = (int) (M * Math.random());
                 test(a);
             }
         System.out.println("SUCESSO");

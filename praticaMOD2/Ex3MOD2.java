@@ -1,34 +1,64 @@
 class Quicksort {
 
     static void swap(int[] a, int i, int j) {
-       int auxiliar = a[i];
-       a[i] = a[j];
-       a[j]= auxiliar;
+        int auxiliar = a[i];
+        a[i] = a[j];
+        a[j] = auxiliar;
     }
 
     static int partition(int[] a, int l, int r) {
+        int pivo = a[l];
+        int i = l + 1;
+        int j = r;
+        if (r - l == 1) {
+            if (a[l] > a[r]) {
+                swap(a, l, r);
+                return r;
+            }
+            return l;
+        }
+        while (i < j) {
+            while(i<=r && a[i]<pivo)i++;
+            while(j>l && a[j]>=pivo)j--;
+            if(i>j){
+                swap(a,l,j);
+                return j;
+            }else{
+                swap(a,i,j);
+            }
+        }
         return 0;
+
     }
 
     static void quickrec(int[] a, int l, int r) {
-       
+        int x = l;
+        if (l < r && r < a.length) {
+            x = partition(a, l, r);
+        }
+        if (l < (x - 1) && (x - 1) < a.length) {
+            quickrec(a, l, x - 1);
+        }
+        if ((x + 1) < r && r < a.length) {
+            quickrec(a, x + 1, r);
+        }
     }
 
     static void quicksort(int[] a) {
-       
+        quickrec(a, 0, a.length - 1);
     }
 
 }
 
-
-class Ex3 {
+class Ex3MOD2 {
     static boolean is_sorted(int[] a) {
         for (int i = 1; i < a.length; i++)
-            if (!(a[i-1] <= a[i])) return false;
+            if (!(a[i - 1] <= a[i]))
+                return false;
         return true;
     }
 
-    static final int M = 10; 
+    static final int M = 10;
 
     static int[] occurrences(int[] a) {
         int[] occ = new int[M];
@@ -39,7 +69,8 @@ class Ex3 {
 
     static boolean is_permut(int[] occ1, int[] occ2) {
         for (int i = 0; i < M; i++)
-            if (occ1[i] != occ2[i]) return false;
+            if (occ1[i] != occ2[i])
+                return false;
         return true;
     }
 
@@ -53,7 +84,7 @@ class Ex3 {
     static int[] random_array(int len) {
         int[] a = new int[len];
         for (int i = 0; i < len; i++)
-            a[i] = (int)(M * Math.random());
+            a[i] = (int) (M * Math.random());
         return a;
     }
 
@@ -61,8 +92,8 @@ class Ex3 {
         int v = a[l];
         System.out.println("  teste com      a = " + print(a) + " v = " + v);
         int[] occ1 = occurrences(a);
-        int m = Quicksort.partition(a,l,r);
-        System.out.println("  partition(a,"+l+","+r+") = " + print(a) + " m = " + m);
+        int m = Quicksort.partition(a, l, r);
+        System.out.println("  partition(a," + l + "," + r + ") = " + print(a) + " m = " + m);
         int[] occ2 = occurrences(a);
         if (!is_permut(occ1, occ2)) {
             System.out.println("ERRO : os elementos diferem");
@@ -95,7 +126,7 @@ class Ex3 {
         System.out.println("teste de partition");
         for (int len = 0; len < 10; len++)
             for (int l = 0; l < len; l++)
-                for (int r = l+1; r < len; r++)
+                for (int r = l + 1; r < len; r++)
                     test_partition(random_array(len), l, r);
         System.out.println("teste de quicksort");
         for (int len = 0; len < 10; len++)
