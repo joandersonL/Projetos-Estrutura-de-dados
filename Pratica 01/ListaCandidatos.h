@@ -22,7 +22,7 @@ public:
     {
         return (head->conteudo==NULL);
     }
-    int tamamho()
+    int tamanho()
     {
         return qtd;
     }
