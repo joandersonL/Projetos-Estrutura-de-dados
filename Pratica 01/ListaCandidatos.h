@@ -17,14 +17,14 @@ class ListaCandidatos
     ListaCandidatos()
     {
         qtd = 0;
-        this->head = new NoCandidato(NULL, NULL);
+        this->head = NULL;
     }
 
     ListaCandidatos(string arquivo)
     {
         ifstream arqEntrada(arquivo.c_str());
         string dados;
-
+        this->head = NULL;
         getline(arqEntrada, dados);
 
         while (getline(arqEntrada, dados))
@@ -61,6 +61,7 @@ class ListaCandidatos
     }
     bool remover(string nome, string sobrenome)
     {
+        
     }
 };
 
