@@ -2,32 +2,66 @@
 #define LISTACANDIDATOS_H_INCLUDED
 #include "NoCandidato.h"
 
+#include <cstring>
+#include <fstream>
+#include <iostream>
+
+using namespace std;
+
 class ListaCandidatos
 {
-public:
+  public:
     int qtd;
-    NoCandidato* head;
+    NoCandidato *head;
+
     ListaCandidatos()
     {
         qtd = 0;
-        this-> head = new NoCandidato(NULL,NULL);
+        this->head = new NoCandidato(NULL, NULL);
     }
-    void adicioneComoHead(Candidato* c)
-    {
-        this-> head = new NoCandidato(c,head);
-        qtd++;
 
+    ListaCandidatos(string arquivo)
+    {
+        ifstream arqEntrada(arquivo.c_str());
+        string dados;
+
+        getline(arqEntrada, dados);
+
+        while (getline(arqEntrada, dados))
+        {
+            Candidato *c = new Candidato(dados);
+            adicioneComoHead(c);
+        }
+    }
+    void adicioneComoHead(Candidato *c)
+    {
+        this->head = new NoCandidato(c, head);
+        qtd++;
     }
     bool estaVazia()
     {
-        return (head->conteudo==NULL);
+        return (head->conteudo == NULL);
     }
     int tamanho()
     {
-        return qtd;
+        if (head == NULL)
+        {
+            return 0;
+        }
+        else
+            return qtd;
     }
-  
-};
+    string toString()
+    {
 
+        if (head != NULL)
+            return head->toString();
+        else
+            return "0";
+    }
+    bool remover(string nome, string sobrenome)
+    {
+    }
+};
 
 #endif // LISTACANDIDATOS_H_INCLUDED
