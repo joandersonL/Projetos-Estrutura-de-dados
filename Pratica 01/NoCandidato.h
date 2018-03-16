@@ -22,7 +22,7 @@ class NoCandidato
             stream << " -> " << this->next->toString();
         }
         else
-        stream << " -> 0";
+            stream << " -> 0";
 
         return stream.str();
     }

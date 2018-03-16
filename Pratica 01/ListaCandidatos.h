@@ -61,7 +61,14 @@ class ListaCandidatos
     }
     bool remover(string nome, string sobrenome)
     {
-        
+        NoCandidato *it;
+        if (head->conteudo->igual)
+        {
+            return true;
+        }
+
+        else
+            return false;
     }
 };
 
