@@ -64,6 +64,7 @@ class ListaCandidatos
         NoCandidato *it;
         if (head->conteudo->igual)
         {
+            //falta remover o candidato da lista
             return true;
         }
 
