@@ -62,7 +62,7 @@ class ListaCandidatos
     bool remover(string nome, string sobrenome)
     {
         NoCandidato *it;
-        if (head->conteudo->igual)
+        if (head->conteudo->igual(nome,sobrenome))
         {
             //falta remover o candidato da lista
             return true;
