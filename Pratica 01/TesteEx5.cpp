@@ -5,7 +5,7 @@ using namespace std;
 
 void test(ListaCandidatos* l, string nome, string sobrenome){
 
-  if(l->remove(nome,sobrenome)){
+  if(l->remover(nome,sobrenome)){
     cout << "remocao feita; nova lista: " << endl;
   }
   else{

@@ -2,6 +2,8 @@
 #define LISTACANDIDATOS_H_INCLUDED
 #include "NoCandidato.h"
 
+#include <stdlib.h>
+
 #include <cstring>
 #include <fstream>
 #include <iostream>
@@ -61,15 +63,31 @@ class ListaCandidatos
     }
     bool remover(string nome, string sobrenome)
     {
-        NoCandidato *it;
-        if (head->conteudo->igual(nome,sobrenome))
+        NoCandidato *it = head;
+
+        if (head->conteudo->igual(nome, sobrenome))
         {
-            //falta remover o candidato da lista
+            NoCandidato *aux = head->next;
+            delete head;
+            head = aux;
+            qtd--;
             return true;
         }
-
         else
-            return false;
+        {
+            while (it->next != NULL)
+            {
+                if (it->next->conteudo->igual(nome, sobrenome))
+                {
+                    free(it->next);
+                    it->next = it->next->next;
+                    qtd--;
+                    return true;
+                }
+                else
+                    it = it->next;
+            }
+        }
     }
 };
 
