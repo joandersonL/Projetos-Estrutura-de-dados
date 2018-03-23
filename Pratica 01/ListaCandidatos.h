@@ -24,7 +24,7 @@ class ListaCandidatos
 
     ListaCandidatos(string arquivo)
     {
-        this->qtd=0;
+        this->qtd = 0;
         ifstream arqEntrada(arquivo.c_str());
         string dados;
         this->head = NULL;
@@ -95,13 +95,13 @@ class ListaCandidatos
     {
         NoCandidato *it = head;
 
-        while (head != NULL && head->conteudo->nota < notaCandidato  )
+        while (head != NULL && head->conteudo->nota < notaCandidato)
 
         {
             NoCandidato *aux = head->next;
             delete head;
             head = aux;
-            this->qtd=qtd-1;
+            this->qtd = qtd - 1;
         }
 
         while (it->next != NULL)
@@ -114,6 +114,23 @@ class ListaCandidatos
             }
             else
                 it = it->next;
+        }
+    }
+    void concatena(ListaCandidatos *l)
+    {
+
+        if (head == NULL)
+            head = l->head;
+        else
+
+        {
+            NoCandidato *nItem = head->next;
+            while (nItem->next != NULL)
+            {
+                nItem = nItem->next;
+            }
+            qtd = qtd + l->tamanho();
+            nItem->next = l->head;
         }
     }
 };
