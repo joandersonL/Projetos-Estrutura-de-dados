@@ -24,6 +24,7 @@ class ListaCandidatos
 
     ListaCandidatos(string arquivo)
     {
+        this->qtd=0;
         ifstream arqEntrada(arquivo.c_str());
         string dados;
         this->head = NULL;
@@ -51,7 +52,7 @@ class ListaCandidatos
             return 0;
         }
         else
-            return qtd;
+            return this->qtd;
     }
     string toString()
     {
@@ -94,13 +95,13 @@ class ListaCandidatos
     {
         NoCandidato *it = head;
 
-        while (head->conteudo->nota < notaCandidato && head->conteudo != NULL)
+        while (head != NULL && head->conteudo->nota < notaCandidato  )
 
         {
             NoCandidato *aux = head->next;
             delete head;
             head = aux;
-            qtd--;
+            this->qtd=qtd-1;
         }
 
         while (it->next != NULL)
@@ -109,7 +110,7 @@ class ListaCandidatos
             {
                 free(it->next);
                 it->next = it->next->next;
-                qtd--;
+                this->qtd--;
             }
             else
                 it = it->next;
