@@ -89,6 +89,32 @@ class ListaCandidatos
             }
         }
     }
+
+    void filtrarCandidatos(int notaCandidato)
+    {
+        NoCandidato *it = head;
+
+        while (head->conteudo->nota < notaCandidato && head->conteudo != NULL)
+
+        {
+            NoCandidato *aux = head->next;
+            delete head;
+            head = aux;
+            qtd--;
+        }
+
+        while (it->next != NULL)
+        {
+            if (it->next->conteudo->nota < notaCandidato)
+            {
+                free(it->next);
+                it->next = it->next->next;
+                qtd--;
+            }
+            else
+                it = it->next;
+        }
+    }
 };
 
 #endif // LISTACANDIDATOS_H_INCLUDED
