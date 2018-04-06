@@ -11,6 +11,10 @@ public class CalcRPN{
         double a = aPilha.desempilha;
         double b = aPilha.desempilha;
         aPilha.empilha(b+a);
+        hist.empilha(new Operacao(a,b,'+'));
+    }
 
+    void menos(){
+        throw new Error("Must be completed");
     }
 }
