@@ -12,14 +12,20 @@ public class Pilha<T> {
     }
 
     public T desempilha() {
-       return conteudo.removeFirst();
+        return conteudo.removeFirst();
     }
 
     public T topo() {
         return conteudo.getFirst();
     }
 
+    public String toString() {
+        return conteudo.toString();
+    }
 
+    public boolean isEmpty() {
+        return conteudo.isEmpty();
+    }
 
     static void test1() {
         Pilha<Double> aPilha = new Pilha<Double>();
@@ -43,7 +49,29 @@ public class Pilha<T> {
         System.out.println("topo pilha = " + valor);
     }
 
+    static void test2() {
+        Pilha<Double> aPilha = new Pilha<Double>();
+        System.out.println(aPilha);
+        aPilha.empilha(1.1);
+        System.out.println(aPilha);
+        aPilha.empilha(2.1);
+        System.out.println(aPilha);
+        aPilha.empilha(3.1);
+        System.out.println(aPilha);
+        double valor = 0.0;
+        valor = aPilha.desempilha();
+        System.out.println("topo pilha = " + valor);
+        System.out.println(aPilha);
+        valor = aPilha.desempilha();
+        System.out.println("topo pilha = " + valor);
+        System.out.println(aPilha);
+        valor = aPilha.desempilha();
+        System.out.println("topo pilha = " + valor);
+        System.out.println(aPilha);
+    }
+
     public static void main(String[] args) {
-    test1();
+        test1();
+        test2();
     }
 }
