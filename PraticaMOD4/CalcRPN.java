@@ -17,28 +17,28 @@ public class CalcRPN {
         double a = aPilha.desempilha();
         double b = aPilha.desempilha();
         aPilha.empilha(b + a);
-        hist.empilha(new Operacao(a, b, '+'));
+        hist.empilha(new Operacao('+',a, b));
     }
 
     void menos() {
         double a = aPilha.desempilha();
         double b = aPilha.desempilha();
         aPilha.empilha(b - a);
-        hist.empilha(new Operacao(a, b, '-'));
+        hist.empilha(new Operacao('-',a, b));
     }
 
     void vezes() {
         double a = aPilha.desempilha();
         double b = aPilha.desempilha();
         aPilha.empilha(b * a);
-        hist.empilha(new Operacao(a, b, '*'));
+        hist.empilha(new Operacao('*',a, b));
     }
 
     void dividido() {
         double a = aPilha.desempilha();
         double b = aPilha.desempilha();
         aPilha.empilha(b / a);
-        hist.empilha(new Operacao(a, b, '/'));
+        hist.empilha(new Operacao('/',a, b));
     }
 
     // interpretador de comandos
@@ -75,6 +75,14 @@ public class CalcRPN {
                 case "undo":
                     break;
 
+                case "hist":
+                System.out.println(hist.toString());
+                break;
+
+                case "clear":
+                aPilha.reinicialize();
+                hist.reinicialize();
+                
                 default:
                     throw new Error("The operation is not valid.");
                 }
