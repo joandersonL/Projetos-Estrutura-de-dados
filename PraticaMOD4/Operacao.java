@@ -7,5 +7,19 @@ public class Operacao{
         this.b=b;
         this.code = code;
     }
-    
+
+    public Operacao(double a){
+        this.a = a;
+        this.code = 'e';
+    }
+    public double getA(){
+        return a;
+    }
+
+    public double getB(){
+        return b;
+    }
+    public char getCode(){
+        return code;
+    }
 }
