@@ -32,21 +32,7 @@ public class Pilha<T> {
             conteudo.pop();
     }
 
-    public String toStringInverse() {
-      /*   //retornar pilha na ordem inversa
-        inversa = new LinkedList<>();
-
-        inversa.addFirst(conteudo.getFirst());
-
-        while (conteudo.getLast() != NULL)
-        /* A pilha inversa receberia os elementos da pilha
-         * pegando do topo e atualindo o topo
-         * removendo o item da pilha conteudo?
-         * 
-         *   return inversa.toString(); 
-         */
-           
-      
+    public String toStringInverse() {         
 
         String s = "[";
 		for (int i = this.conteudo.size() - 1; i >= 0; i--) {
