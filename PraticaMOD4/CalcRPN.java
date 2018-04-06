@@ -1,7 +1,6 @@
-import  java.io.IOException;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.BufferedReader;
-
 
 public class CalcRPN {
 
@@ -17,28 +16,28 @@ public class CalcRPN {
         double a = aPilha.desempilha();
         double b = aPilha.desempilha();
         aPilha.empilha(b + a);
-        hist.empilha(new Operacao('+',a, b));
+        hist.empilha(new Operacao('+', a, b));
     }
 
     void menos() {
         double a = aPilha.desempilha();
         double b = aPilha.desempilha();
         aPilha.empilha(b - a);
-        hist.empilha(new Operacao('-',a, b));
+        hist.empilha(new Operacao('-', a, b));
     }
 
     void vezes() {
         double a = aPilha.desempilha();
         double b = aPilha.desempilha();
         aPilha.empilha(b * a);
-        hist.empilha(new Operacao('*',a, b));
+        hist.empilha(new Operacao('*', a, b));
     }
 
     void dividido() {
         double a = aPilha.desempilha();
         double b = aPilha.desempilha();
         aPilha.empilha(b / a);
-        hist.empilha(new Operacao('/',a, b));
+        hist.empilha(new Operacao('/', a, b));
     }
 
     // interpretador de comandos
@@ -75,14 +74,14 @@ public class CalcRPN {
                 case "undo":
                     break;
 
-                case "hist":
-                System.out.println(hist.toString());
-                break;
+                case "hist": //não está funcionando
+                    System.out.println(hist.toString());
+                    break;
 
                 case "clear":
-                aPilha.reinicialize();
-                hist.reinicialize();
-                
+                    aPilha.reinicialize();
+                    hist.reinicialize();
+
                 default:
                     throw new Error("The operation is not valid.");
                 }
@@ -137,8 +136,14 @@ public class CalcRPN {
         calc.aPilha.empilha(3.0);
         calc.aPilha.empilha(2.0);
         calc.dividido();
+
         System.out.println(calc.resultado());
         calc = new CalcRPN();
+
+        System.out.println();
+        System.out.println("Histórico:");
+        calc.exec("hist");
+
         System.out.print("1 2 + 3 4 - / 10 3 - * = ");
         calc.aPilha.empilha(1.0);
         calc.aPilha.empilha(2.0);
@@ -153,17 +158,13 @@ public class CalcRPN {
         calc.vezes();
         System.out.println(calc.resultado());
     }
-
-    /*  public static void main(String[] args) {
+    /* 
+     public static void main(String[] args) {
         test();
-    } */
+    } 
+     */
 
-    public static void main (String[] args) throws IOException {
-       
-
-    }
-
-    //teste não coleta dados do teclado
+    //teste não coleta dados do teclado 
     static void interfaceUsuario() throws IOException {
         CalcRPN calc = new CalcRPN();
         String line;
@@ -177,5 +178,9 @@ public class CalcRPN {
         }
         System.out.println("Até logo");
     }
-    
+
+    public static void main(String[] args) throws IOException {
+
+        interfaceUsuario();
+    }
 }
