@@ -27,10 +27,24 @@ public class Pilha<T> {
         return conteudo.isEmpty();
     }
 
-    public void reinicialize(){
-        while(!conteudo.isEmpty())
-        conteudo.pop();
+    public void reinicialize() {
+        while (!conteudo.isEmpty())
+            conteudo.pop();
     }
+
+    public String toStringInverse() {
+        //retornar pilha na ordem inversa
+        inversa = new LinkedList<>();
+
+        inversa.addFirst(conteudo.getFirst());
+
+        while (conteudo.getLast() != NULL)
+        
+           
+
+        return inversa.toString();
+    }
+
     static void test1() {
         Pilha<Double> aPilha = new Pilha<Double>();
         aPilha.empilha(1.1);
@@ -69,7 +83,6 @@ public class Pilha<T> {
         valor = aPilha.desempilha();
         System.out.println("topo pilha = " + valor);
         System.out.println(aPilha);
-        
 
         /* valor = aPilha.desempilha();
         System.out.println("topo pilha = " + valor);

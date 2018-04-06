@@ -48,9 +48,9 @@ public class Operacao {
         op[6] = new Operacao('-', 4.0, 3.0);
         op[7] = new Operacao('*', 8.0, 1.0);
         op[8] = new Operacao('/', 16.0, 8.0);
-        for (int i = 0; i < op.length; i++) {
+        for (int i = 0; i < op.length; i++)
             System.out.print(op[i] + "  ");
-            System.out.println();
-        }
+        System.out.println();
+
     }
 }
