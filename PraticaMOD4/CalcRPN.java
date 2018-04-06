@@ -4,7 +4,8 @@ public class CalcRPN {
     Pilha<Operacao> hist;
 
     CalcRPN() {
-        throw new Error("Must be completed");
+        aPilha = new Pilha<>();
+        hist = new Pilha<>();
     }
 
     void mais() {
@@ -70,14 +71,31 @@ public class CalcRPN {
                     break;
 
                 default:
-                    throw new Error("");
+                    throw new Error("The operation is not valid.");
                 }
 
         }
     }
 
+    void undo() {
+
+        Operacao x = hist.desempilha();
+
+        if (x != NULL) {
+            if (x.getCode() == 'e') {
+                aPilha.desempilha();
+            } else {
+                aPilha.desempilha();             
+                aPilha.empilha(x.getB());
+                aPilha.empilha(x.getA()); 
+            }
+        }
+        else
+            throw new Error("The stack is empty");
+    }
+
     // retorna o conteudo do topo da pilha
     Double resultado() {
-        throw new Error("a ser completado");
+        return aPilha.topo();
     }
 }
