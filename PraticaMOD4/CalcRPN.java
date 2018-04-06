@@ -40,7 +40,7 @@ public class CalcRPN {
         hist.empilha(new Operacao('/', a, b));
     }
 
-    // interpretador de comandos
+    
     void exec(String cmd) {
         double valor;
 
@@ -75,7 +75,7 @@ public class CalcRPN {
                     cancela();
                     break;
 
-                case "hist": //não está funcionando
+                case "hist":
                     System.out.println(hist.toString());
                     break;
 
@@ -91,16 +91,16 @@ public class CalcRPN {
         }
     }
 
-    //ESTA DANDO ERRO
     void cancela() {
-        if (!hist.isEmpty()) {
-
-            Operacao x = hist.desempilha();
+        if (!aPilha.isEmpty()) {
+            Operacao x = hist.topo();
             if (x.getCode() == 'e') {
                 aPilha.desempilha();
+                hist.desempilha();
             } else {
                 aPilha.desempilha();
                 aPilha.empilha(x.getB());
+                hist.desempilha();
                 aPilha.empilha(x.getA());
             }
         } else
@@ -115,7 +115,6 @@ public class CalcRPN {
             throw new Error("The stack is empty!");
     }
 
-
     static void test() {
         CalcRPN calc = new CalcRPN();
         System.out.print("3 2 + = ");
@@ -123,12 +122,15 @@ public class CalcRPN {
         calc.aPilha.empilha(2.0);
         calc.mais();
         System.out.println(calc.resultado());
+
         calc = new CalcRPN();
         System.out.print("3 2 - = ");
         calc.aPilha.empilha(3.0);
         calc.aPilha.empilha(2.0);
         calc.menos();
         System.out.println(calc.resultado());
+        calc.exec("hist");
+
         calc = new CalcRPN();
         System.out.print("3 2 * = ");
         calc.aPilha.empilha(3.0);
@@ -136,7 +138,10 @@ public class CalcRPN {
         calc.vezes();
         System.out.println(calc.resultado());
 
+        calc.exec("hist");
         calc.exec("undo");
+        calc.exec("hist");
+
 
         calc = new CalcRPN();
         System.out.print("3 2 / = ");
@@ -146,12 +151,6 @@ public class CalcRPN {
 
         System.out.println(calc.resultado());
         calc = new CalcRPN();
-
-        //NAO FUNCIONA
-        /* System.out.println();
-        System.out.println("Histórico:");
-        calc.exec("hist"); */
-
         System.out.print("1 2 + 3 4 - / 10 3 - * = ");
         calc.aPilha.empilha(1.0);
         calc.aPilha.empilha(2.0);
@@ -165,16 +164,16 @@ public class CalcRPN {
         calc.menos();
         calc.vezes();
         System.out.println(calc.resultado());
+        calc.exec("hist");
 
-        
     }
-    
-     /* public static void main(String[] args) {
+
+    public static void main(String[] args) {
         test();
-    }  */
-     
+    }
 
     //testar novamente -- aqui deu loop infinito
+    //USAR O MAIN ABAIXO PARA TESTAR
     static void interfaceUsuario() throws IOException {
         CalcRPN calc = new CalcRPN();
         String line;
@@ -189,7 +188,7 @@ public class CalcRPN {
         System.out.println("Até logo");
     }
 
-    public static void main(String[] args) throws IOException {
+    /* public static void main(String[] args) throws IOException {
         interfaceUsuario();
-    }
+    } */
 }
