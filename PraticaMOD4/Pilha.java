@@ -77,6 +77,9 @@ public class Pilha<T> {
         System.out.println(aPilha);
         aPilha.empilha(3.1);
         System.out.println(aPilha);
+
+        System.out.println(aPilha.toStringInverse());
+
         double valor = 0.0;
         valor = aPilha.desempilha();
         System.out.println("topo pilha = " + valor);
@@ -85,12 +88,14 @@ public class Pilha<T> {
         System.out.println("topo pilha = " + valor);
         System.out.println(aPilha);
 
+
         /* valor = aPilha.desempilha();
         System.out.println("topo pilha = " + valor);
         System.out.println(aPilha); */
 
         aPilha.reinicialize();
         System.out.println(aPilha);
+        
     }
 
     public static void main(String[] args) {
