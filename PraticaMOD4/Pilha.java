@@ -27,6 +27,10 @@ public class Pilha<T> {
         return conteudo.isEmpty();
     }
 
+    public void reinicialize(){
+        while(!conteudo.isEmpty())
+        conteudo.pop();
+    }
     static void test1() {
         Pilha<Double> aPilha = new Pilha<Double>();
         aPilha.empilha(1.1);
@@ -65,8 +69,13 @@ public class Pilha<T> {
         valor = aPilha.desempilha();
         System.out.println("topo pilha = " + valor);
         System.out.println(aPilha);
-        valor = aPilha.desempilha();
+        
+
+        /* valor = aPilha.desempilha();
         System.out.println("topo pilha = " + valor);
+        System.out.println(aPilha); */
+
+        aPilha.reinicialize();
         System.out.println(aPilha);
     }
 
