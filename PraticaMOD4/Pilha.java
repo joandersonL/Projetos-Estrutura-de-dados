@@ -39,7 +39,10 @@ public class Pilha<T> {
         inversa.addFirst(conteudo.getFirst());
 
         while (conteudo.getLast() != NULL)
-        
+        /* A pilha inversa receberia os elementos da pilha
+         * pegando do topo e atualindo o topo
+         * removendo o item da pilha conteudo?
+         */
            
 
         return inversa.toString();
