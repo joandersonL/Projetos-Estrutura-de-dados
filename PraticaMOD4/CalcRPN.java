@@ -1,6 +1,6 @@
 public class CalcRPN{
 
-    Pilha<double> aPilha;
+    Pilha<Double> aPilha;
     Pilha<Operacao> hist;
 
     CalcRPN(){
@@ -8,6 +8,9 @@ public class CalcRPN{
     }
 
     void mais(){
-        
+        double a = aPilha.desempilha;
+        double b = aPilha.desempilha;
+        aPilha.empilha(b+a);
+
     }
 }
