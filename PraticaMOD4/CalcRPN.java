@@ -72,6 +72,7 @@ public class CalcRPN {
                     break;
 
                 case "undo":
+                    cancela();
                     break;
 
                 case "hist": //não está funcionando
@@ -81,6 +82,7 @@ public class CalcRPN {
                 case "clear":
                     aPilha.reinicialize();
                     hist.reinicialize();
+                    break;
 
                 default:
                     throw new Error("The operation is not valid.");
@@ -89,7 +91,8 @@ public class CalcRPN {
         }
     }
 
-    void undo() {
+    //ESTA DANDO ERRO
+    void cancela() {
         if (!hist.isEmpty()) {
 
             Operacao x = hist.desempilha();
@@ -112,6 +115,7 @@ public class CalcRPN {
             throw new Error("The stack is empty!");
     }
 
+
     static void test() {
         CalcRPN calc = new CalcRPN();
         System.out.print("3 2 + = ");
@@ -131,6 +135,9 @@ public class CalcRPN {
         calc.aPilha.empilha(2.0);
         calc.vezes();
         System.out.println(calc.resultado());
+
+        calc.exec("undo");
+
         calc = new CalcRPN();
         System.out.print("3 2 / = ");
         calc.aPilha.empilha(3.0);
@@ -140,9 +147,10 @@ public class CalcRPN {
         System.out.println(calc.resultado());
         calc = new CalcRPN();
 
-        System.out.println();
+        //NAO FUNCIONA
+        /* System.out.println();
         System.out.println("Histórico:");
-        calc.exec("hist");
+        calc.exec("hist"); */
 
         System.out.print("1 2 + 3 4 - / 10 3 - * = ");
         calc.aPilha.empilha(1.0);
@@ -157,14 +165,16 @@ public class CalcRPN {
         calc.menos();
         calc.vezes();
         System.out.println(calc.resultado());
-    }
-    /* 
-     public static void main(String[] args) {
-        test();
-    } 
-     */
 
-    //teste não coleta dados do teclado 
+        
+    }
+    
+     /* public static void main(String[] args) {
+        test();
+    }  */
+     
+
+    //testar novamente -- aqui deu loop infinito
     static void interfaceUsuario() throws IOException {
         CalcRPN calc = new CalcRPN();
         String line;
@@ -180,7 +190,6 @@ public class CalcRPN {
     }
 
     public static void main(String[] args) throws IOException {
-
         interfaceUsuario();
     }
 }
