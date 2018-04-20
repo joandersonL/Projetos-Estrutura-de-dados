@@ -7,8 +7,6 @@ public class Database{
         caracteres = new ArrayList<Letra>();
         char a = 'a';
         
-        char a='a';
-        
         for(int i=0;i<26;i++){
            caracteres.add(new Letra(Character.toString((char) (a+i))));
         }
