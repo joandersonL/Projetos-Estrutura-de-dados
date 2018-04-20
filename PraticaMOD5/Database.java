@@ -5,16 +5,22 @@ public class Database{
 
     static{
         caracteres = new ArrayList<Letra>();
-        /* caracteres.add(new Letra("a"));
-        caracteres.add(new Letra("b"));
-
-        caracteres.add(new Letra("A"));
-        caracteres.add(new Letra("B"));
-
-        caracteres.add(new Letra("0"));
-
-        caracteres.add(new Letra(" ")); */
-
+        char a = 'a';
+        
+        char a='a';
+        
+        for(int i=0;i<26;i++){
+           caracteres.add(new Letra(Character.toString((char) (a+i))));
+        }
+        char a = 'A';
+        for(int i=0;i<26;i++){
+           caracteres.add(new Letra(Character.toString((char) (a+i))));
+        }
+        char a='0';
+        for(int i=0;i<10;i++){
+           caracteres.add(new Letra(Character.toString((char) (a+i))));
+        }
+        caracteres.add(new Letra(" "));
         
     }
 }
