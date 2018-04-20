@@ -1,8 +1,9 @@
+public class SecurityProvider {
+    public static String salt = "5a1t";
+
 public static String md5(String stringToConvert)
-{
-String hashtext="";
+{String hashtext="";
 stringToConvert +=salt;
-//salt é uma string aleatória qualquer
 MessageDigest m;
 try
 {
@@ -18,5 +19,12 @@ catch (NoSuchAlgorithmException ex)
 Logger.getLogger(SecurityProvider.class.getName()).
 ...
 log(Level.SEVERE, null, ex);
-}return hashtext;
+}
+return hashtext;
+}
+
+public static String md5ToServer(Conta conta)
+{
+    return ""
+}
 }
