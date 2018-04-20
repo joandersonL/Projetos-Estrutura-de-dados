@@ -2,7 +2,7 @@ public static String md5(String stringToConvert)
 {
 String hashtext="";
 stringToConvert +=salt;
-salt é uma string aleatória qualquer
+//salt é uma string aleatória qualquer
 MessageDigest m;
 try
 {
