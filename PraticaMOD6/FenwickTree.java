@@ -1,10 +1,15 @@
 public class FenwickTree {
+    
     int value;
     int leftsize;
     FenwickTree left;
     FenwickTree right;
 
     FenwickTree(int value) {
+
+    }
+
+    FenwickTree(int leftSize, FenwickTree left, FenwickTree right) {
 
     }
 
@@ -21,12 +26,23 @@ public class FenwickTree {
         return new FenwickTree(0, n - m, allZeros(n - m), allZeros(m));
     }
 
-    void increment(int i, int delta){
+    public int size() {
+
+    }
+
+    //void increment(int i, int delta, FenwickTree t)
+    public void increment(int i, int delta) {
         value += delta;
-        if(leftsize > i){
+        if (leftsize > i) {
             left.increment(i, delta);
-        }
-        else
-            right.increment(i- leftsize, delta);
+        } else
+            right.increment(i - leftsize, delta);
+    }
+
+    public int prefixSum(int upto) {
+
+    }
+    public int between(int lo, int hi){
+
     }
 }
