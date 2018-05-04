@@ -70,14 +70,13 @@ public class FenwickTree {
 
     public int prefixSum(int upto) { // soma dos valores das folhas, 0 ≤ upto < n
         int soma = 0;
-        if(upto < leftSize)
-        {
-
+        if(upto==0){
+            return value;
         }
-        else
-        {
-            
-        }
+        if (leftSize > upto) {
+            left.prefixSum(upto);
+        } else
+            right.prefixSum(upto- leftSize);
         return soma;
     }
 
