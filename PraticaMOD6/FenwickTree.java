@@ -1,20 +1,43 @@
+import javax.lang.model.util.ElementScanner6;
+
 public class FenwickTree {
-    
+
     int value;
-    int leftsize;
+    int leftSize;
     FenwickTree left;
     FenwickTree right;
 
     FenwickTree(int value) {
-
+        this.value = value;
+        this.leftSize = 0;
+        this.left = null;
+        this.right = null;
     }
 
     FenwickTree(int leftSize, FenwickTree left, FenwickTree right) {
+        this.value = left.value + right.value;
+        this.leftSize = leftSize;
+        this.left = left;
+        this.right = right;
+    }
 
+    FenwickTree(int value, int leftSize, FenwickTree left, FenwickTree right) {
+        this.value = value;
+        this.leftSize = leftSize;
+        this.left = left;
+        this.right = right;
     }
 
     public String toString() {
-        return;
+        if (left == null && right == null)
+            return "[" + Integer.toString(value) + ", " + Integer.toString(leftSize) + "]";
+        else if (left == null)
+            return "[" + Integer.toString(value) +  ","+ Integer.toString(leftSize)+  ","+ right.toString() + "]";
+        else if (right == null)
+            return "[" + Integer.toString(value)  + "," + Integer.toString(leftSize) + ","+ left.toString() + "]";
+
+        else
+            return "[" + Integer.toString(value)  + "," + Integer.toString(leftSize)+ "," + left.toString() + ","+ right.toString()+ "]";
     }
 
     static FenwickTree allZeros(int n) {
@@ -26,23 +49,28 @@ public class FenwickTree {
         return new FenwickTree(0, n - m, allZeros(n - m), allZeros(m));
     }
 
-    public int size() {
+    /*
+     * public int size() { // retorna num de folhas }
+     * 
+     * public int prefixSum(int upto) { // soma dos valores das folhas, 0 ≤ upto < n
+     * }
+     * 
+     * public int between(int lo, int hi) { // soma dos valores das folhas, 0 ≤ lo ≤
+     * hi ≤ n, }
+     */
 
-    }
-
-    //void increment(int i, int delta, FenwickTree t)
     public void increment(int i, int delta) {
         value += delta;
-        if (leftsize > i) {
+        if (leftSize > i) {
             left.increment(i, delta);
         } else
-            right.increment(i - leftsize, delta);
+            right.increment(i - leftSize, delta);
     }
 
-    public int prefixSum(int upto) {
-
-    }
-    public int between(int lo, int hi){
-
+    public static void main(String[] args) {
+        System.out.println("Construcao de FenwickTree(3) : " + new FenwickTree(3));
+        System.out.println("Construcao da arvore da figura : " + new FenwickTree(3,
+                new FenwickTree(1, new FenwickTree(4), new FenwickTree(1, new FenwickTree(2), new FenwickTree(5))),
+                new FenwickTree(1, new FenwickTree(3), new FenwickTree(1, new FenwickTree(6), new FenwickTree(1)))));
     }
 }
