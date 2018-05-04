@@ -74,8 +74,8 @@ public class FenwickTree {
         return soma;
     }
 
-    public int between(int lo, int hi) { // soma dos valores das folhas, 0 ≤ lo ≤ hi ≤ n, 
-        return 0;
+    public int between(int lo, int hi) { // soma dos valores das folhas, 0 ≤ lo ≤ hi ≤ n,
+        return prefixSum(hi) - prefixSum(lo);
     }
 
     
