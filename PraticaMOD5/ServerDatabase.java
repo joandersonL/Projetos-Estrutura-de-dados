@@ -24,7 +24,8 @@ public class ServerDatabase extends Database {
     ArrayList<Conta> posicao = contas.get(indice);
     lista.add(conta);
 
-    for(i = 0 ;i<lista.size();i++){
+    for(i = 0 ;i<lista.size();i++)
+    {
         if(lista.get(conta))
     }
 
