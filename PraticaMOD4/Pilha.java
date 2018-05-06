@@ -12,10 +12,14 @@ public class Pilha<T> {
     }
 
     public T desempilha() {
+        if(conteudo.isEmpty())
+        throw new Error(" A pilha está vazia");
         return conteudo.removeFirst();
     }
 
     public T topo() {
+        if(conteudo.isEmpty())
+        throw new Error(" A pilha está vazia");
         return conteudo.getFirst();
     }
 
