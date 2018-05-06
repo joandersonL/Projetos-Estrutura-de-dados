@@ -4,7 +4,7 @@ public class Conta {
     public String saldo, senha, md5;
 
 
-
+    //falta alterar os construtores para iniciar md5 com SecurityProvider.md5ToServer
     Conta(String agencia, String numero, String senha) {
         this.agencia = agencia;
         this.numero = numero;
