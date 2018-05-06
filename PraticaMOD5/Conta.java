@@ -1,7 +1,9 @@
 public class Conta {
 
-    private String nomeCliente, agencia, numero;
-    private String saldo, senha, md5;
+    public String nomeCliente, agencia, numero;
+    public String saldo, senha, md5;
+
+
 
     Conta(String agencia, String numero, String senha) {
         this.agencia = agencia;
