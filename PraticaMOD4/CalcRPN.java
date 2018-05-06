@@ -115,65 +115,6 @@ public class CalcRPN {
             throw new Error("The stack is empty!");
     }
 
-    static void test() {
-        CalcRPN calc = new CalcRPN();
-        System.out.print("3 2 + = ");
-        calc.aPilha.empilha(3.0);
-        calc.aPilha.empilha(2.0);
-        calc.mais();
-        System.out.println(calc.resultado());
-
-        calc = new CalcRPN();
-        System.out.print("3 2 - = ");
-        calc.aPilha.empilha(3.0);
-        calc.aPilha.empilha(2.0);
-        calc.menos();
-        System.out.println(calc.resultado());
-        calc.exec("hist");
-
-        calc = new CalcRPN();
-        System.out.print("3 2 * = ");
-        calc.aPilha.empilha(3.0);
-        calc.aPilha.empilha(2.0);
-        calc.vezes();
-        System.out.println(calc.resultado());
-
-        calc.exec("hist");
-        calc.exec("undo");
-        calc.exec("hist");
-
-
-        calc = new CalcRPN();
-        System.out.print("3 2 / = ");
-        calc.aPilha.empilha(3.0);
-        calc.aPilha.empilha(2.0);
-        calc.dividido();
-
-        System.out.println(calc.resultado());
-        calc = new CalcRPN();
-        System.out.print("1 2 + 3 4 - / 10 3 - * = ");
-        calc.aPilha.empilha(1.0);
-        calc.aPilha.empilha(2.0);
-        calc.mais();
-        calc.aPilha.empilha(3.0);
-        calc.aPilha.empilha(4.0);
-        calc.menos();
-        calc.dividido();
-        calc.aPilha.empilha(10.0);
-        calc.aPilha.empilha(3.0);
-        calc.menos();
-        calc.vezes();
-        System.out.println(calc.resultado());
-        calc.exec("hist");
-
-    }
-
-    public static void main(String[] args) {
-        test();
-    }
-
-    //testar novamente -- aqui deu loop infinito
-    //USAR O MAIN ABAIXO PARA TESTAR
     static void interfaceUsuario() throws IOException {
         CalcRPN calc = new CalcRPN();
         String line;
@@ -188,7 +129,7 @@ public class CalcRPN {
         System.out.println("Até logo");
     }
 
-    /* public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException {
         interfaceUsuario();
-    } */
+    } 
 }
