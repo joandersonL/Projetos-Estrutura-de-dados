@@ -13,19 +13,7 @@ public class Letra {
     public String getMd5Code() {
         return md5Code;
     }
-
-    /*
-     * public static Letra getLetra(String md5){ for(caracteres){
-     * if(caracteres.getCaractere(i).getMd5().equals(md5)) return
-     * caracteres.getCaractere(i); } return null; }
-     */
-    public static void test6() {
-        Letra l = new Letra("a");
-        String md5 = l.getMd5Code();
-        System.out.println(md5);
-    }
-
-    public static void main(String[] args) {
-        test6();
+    public void setCaractere(String c){
+        this.caractere = c;
     }
 }

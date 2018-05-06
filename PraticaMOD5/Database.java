@@ -21,4 +21,9 @@ public class Database{
         caracteres.add(new Letra(" "));
         
     }
+    /*
+     * public static Letra getLetra(String md5){ for(caracteres){
+     * if(caracteres.getCaractere(i).getMd5().equals(md5)) return
+     * caracteres.getCaractere(i); } return null; }
+     */
 }
