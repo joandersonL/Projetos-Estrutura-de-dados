@@ -29,5 +29,12 @@ public class SecurityProvider {
 
         return md5(cat);
     }
-
+    public static String[] md5ToClient(Conta conta)
+    {
+        String toCrypt = conta.getNomeCliente()+" "+conta.getSaldo();
+        for(int i=0;i<toCrypt.length();i++){
+            SecurityProvider.md5()
+        }
+        return null;
+    }
 }
