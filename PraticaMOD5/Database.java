@@ -22,17 +22,31 @@ public class Database {
     }
         public static Letra getLetra(String md5){
         for(int i=0;i<caracteres.size();i++){
-        if(caracteres.get(i).getMd5Code().equals(md5))
-            return caracteres.get(i);    
-        } 
+            if(caracteres.get(i).getMd5Code().equals(md5)){
+                return caracteres.get(i);
+            }
+        }
         return null;
+     }
+    public static Conta getConta(String s[]){
+        Conta c = null;
+        String nome = "";
+        String saldo= "";
+        boolean flag = true;
+        for (String item : s) {
+            
+            String a = getLetra(item).getCaractere();
+            if(a.charAt(0)>='0'&&a.charAt(0)<='9'){
+                saldo += a;
+            }else{
+                nome += a;
+            }
+            
         }
-        public Conta getConta(String s[]){
-            Conta c;
-            String nome = "";
-            boolean flag = true;
-            /* for(String item =) */
-            return c;
-        }
+        c = new Conta(nome,saldo);
+        //c.setSaldo(saldo);
+        return c;
+        
+    }
     }
 
