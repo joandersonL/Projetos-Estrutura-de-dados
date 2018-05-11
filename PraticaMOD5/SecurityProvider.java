@@ -1,6 +1,7 @@
 import java.lang.*;
 import java.security.*;
 import java.math.BigInteger;
+import java.util.ArrayList;
 import java.util.logging.*;
 
 public class SecurityProvider {
@@ -29,12 +30,15 @@ public class SecurityProvider {
 
         return md5(cat);
     }
-    public static String[] md5ToClient(Conta conta)
-    {
-        String toCrypt = conta.getNomeCliente()+" "+conta.getSaldo();
-        for(int i=0;i<toCrypt.length();i++){
-            SecurityProvider.md5()
+
+    public static String[] md5ToClient(Conta conta) {
+        String toCrypt = conta.getNomeCliente() + " " + conta.getSaldo();
+        char c;
+        String[] lista = new String[toCrypt.length()];
+        for (int i = 0; i < toCrypt.length(); i++) {
+            c = toCrypt.charAt(i);
+            lista[i] = SecurityProvider.md5(String.valueOf(c));
         }
-        return null;
+        return lista;
     }
 }
