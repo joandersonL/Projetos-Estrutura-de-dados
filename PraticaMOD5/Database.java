@@ -20,7 +20,18 @@ public class Database {
         }
         caracteres.add(new Letra(" "));
 
+        public static
+Letra getLetra(String md5){
+   /*  for(int 0;i<caracteres.size();i++){
+        if(caracteres.get(i).getMd5)
+    } */
+}
+        public Conta getConta(String s[]){
+            Conta c;
+
+        }
     }
+
     /*
      * public static Letra getLetra(String md5){ for(caracteres){
      * if(caracteres.getCaractere(i).getMd5().equals(md5)) return
