@@ -29,7 +29,7 @@ public class Conta {
         this.senha = null;
         this.nomeCliente = nomeCliente;
         this.saldo = saldo;
-        this.md5 = SecurityProvider.md5ToServer(this);
+        this.md5 = null;
     }
 
     public String getNomeCliente() {
