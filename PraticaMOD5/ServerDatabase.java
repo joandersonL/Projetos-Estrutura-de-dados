@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.math.BigInteger;
+
 public class ServerDatabase extends Database {
     public static final ArrayList<ArrayList<Conta>> contas;
     public static final int N = 100;
@@ -18,11 +21,11 @@ public class ServerDatabase extends Database {
 
     public static void insereConta(Conta conta) {
 
-        int indice = hashCode(md5);
+        int indice = hashCode(conta.getMD5());
         ArrayList<Conta> posicao = contas.get(indice);
 
-        for (i = 0; i < posicao.size(); i++) {
-            if (posicao.get(i).getMD5.equals(conta.getMD5())) {
+        for (int i = 0; i < posicao.size(); i++) {
+            if (posicao.get(i).getMD5().equals(conta.getMD5())) {
                 return;
             }
         }
@@ -30,5 +33,28 @@ public class ServerDatabase extends Database {
     }
 
     public static Conta getConta(String md5) {
+
+        int indice = hashCode(md5);
+        ArrayList<Conta> posicao = contas.get(indice);
+
+        for (int i = 0; i < posicao.size(); i++) {
+            if (posicao.get(i).getMD5().equals(md5)) {
+                return posicao.get(i);
+            }
+        }
+        return null;
+    }
+
+    public static void test3() {
+        Conta c = new Conta("1234", "2222", "1245");
+        ServerDatabase.insereConta(c);
+        String chave = SecurityProvider.md5ToServer(c);
+        System.out.println(chave);
+        Conta conta = ServerDatabase.getConta(chave);
+        System.out.println(conta);
+    }
+
+    public static void main(String[] args) {
+        test3();
     }
 }
