@@ -82,8 +82,8 @@ public class FenwickTree {
         else if(upto < leftSize){
             return left.prefixSum(upto);
         }
-        else if(upto > leftSize){
-            return value - right.value + right.prefixSun(upto-leftSize);
+        else {
+            return left.value + right.prefixSun(upto-leftSize);
         }
         /*
         else if (leftSize > upto) {
