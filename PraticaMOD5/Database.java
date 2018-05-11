@@ -19,22 +19,20 @@ public class Database {
             caracteres.add(new Letra(Character.toString((char) (a + i))));
         }
         caracteres.add(new Letra(" "));
-
-        public static
-Letra getLetra(String md5){
-   /*  for(int 0;i<caracteres.size();i++){
-        if(caracteres.get(i).getMd5)
-    } */
-}
+    }
+        public static Letra getLetra(String md5){
+        for(int i=0;i<caracteres.size();i++){
+        if(caracteres.get(i).getMd5Code().equals(md5))
+            return caracteres.get(i);    
+        } 
+        return null;
+        }
         public Conta getConta(String s[]){
             Conta c;
-
+            String nome = "";
+            boolean flag = true;
+            /* for(String item =) */
+            return c;
         }
     }
 
-    /*
-     * public static Letra getLetra(String md5){ for(caracteres){
-     * if(caracteres.getCaractere(i).getMd5().equals(md5)) return
-     * caracteres.getCaractere(i); } return null; }
-     */
-}
