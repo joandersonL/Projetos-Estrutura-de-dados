@@ -4,14 +4,14 @@ public class Conta {
     public String saldo, senha, md5;
 
 
-    //falta alterar os construtores para iniciar md5 com SecurityProvider.md5ToServer
+    
     Conta(String agencia, String numero, String senha) {
         this.agencia = agencia;
         this.numero = numero;
         this.senha = senha;
         this.nomeCliente = null;
         this.saldo = null;
-        this.md5 = null;
+        this.md5 = SecurityProvider.md5ToServer(this);
     }
 
     Conta(String agencia, String numero, String senha, String saldo, String nomeCliente) {
@@ -20,7 +20,7 @@ public class Conta {
         this.senha = senha;
         this.nomeCliente = nomeCliente;
         this.saldo = saldo;
-        this.md5 = null;
+        this.md5 = SecurityProvider.md5ToServer(this);
     }
 
     Conta(String nomeCliente, String saldo) {
@@ -29,7 +29,7 @@ public class Conta {
         this.senha = null;
         this.nomeCliente = nomeCliente;
         this.saldo = saldo;
-        this.md5 = null;
+        this.md5 = SecurityProvider.md5ToServer(this);
     }
 
     public String getNomeCliente() {
