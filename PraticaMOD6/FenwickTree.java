@@ -69,15 +69,29 @@ public class FenwickTree {
     }
 
     public int prefixSum(int upto) { // soma dos valores das folhas, 0 ≤ upto < n
-        int soma = 0;
-        if(upto==0){
+        //int soma = 0;
+        if(upto == 0){
+            return 0;
+        }
+        else if(left == null){
             return value;
         }
-        if (leftSize > upto) {
+        else if(upto == leftSize){
+            return left.value;
+        }
+        else if(upto < leftSize){
+            return left.prefixSum(upto);
+        }
+        else if(upto > leftSize){
+            return value - right.value + right.prefixSun(upto-leftSize);
+        }
+        /*
+        else if (leftSize > upto) {
             left.prefixSum(upto);
         } else
             right.prefixSum(upto- leftSize);
         return soma;
+        */
     }
 
     public int between(int lo, int hi) { // soma dos valores das folhas, 0 ≤ lo ≤ hi ≤ n,
