@@ -16,20 +16,19 @@ public class ServerDatabase extends Database {
         return pos;
     }
 
-    public static void insereConta(Conta conta)
-    {
+    public static void insereConta(Conta conta) {
 
-    string md5 = SecurityProvider.md5ToServer(conta);
-    int indice = hashCode(md5);
-    ArrayList<Conta> posicao = contas.get(indice);
-    lista.add(conta);
+        int indice = hashCode(md5);
+        ArrayList<Conta> posicao = contas.get(indice);
 
-    for(i = 0 ;i<lista.size();i++)
-    {
-        if(lista.get(conta))
+        for (i = 0; i < posicao.size(); i++) {
+            if (posicao.get(i).getMD5.equals(conta.getMD5())) {
+                return;
+            }
+        }
+        posicao.add(conta);
     }
 
     public static Conta getConta(String md5) {
-    }
     }
 }
