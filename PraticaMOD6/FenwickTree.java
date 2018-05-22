@@ -85,7 +85,6 @@ public class FenwickTree {
         else {
             return left.value + right.prefixSun(upto-leftSize);
         }
-
     }
 
     public int between(int lo, int hi) { // soma dos valores das folhas, 0 ≤ lo ≤ hi ≤ n,
