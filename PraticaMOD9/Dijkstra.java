@@ -6,7 +6,12 @@ public class Dijkstra {
 	final int n; 
 	final int source; 
 	final int dest; 
-	Fenetre f; 
+	Fenetre f;
+
+	int[] dist;
+	int[] pred;
+	boolean[] settled;
+	PriorityQueue<Node> naoacomodados;
 
 	// construtor
 	Dijkstra(Graph g, int source, int   dest) {
@@ -14,16 +19,36 @@ public class Dijkstra {
 		n = g.n;
 		this.source = source;
 		this.dest = dest;
+		dist = new int[n];
+		pred = new int[n];
+		for(int i=0; i<n;i++)
+			dist[i] = Integer.MAX_VALUE;
+		dist[source] = 0;
+		for(int i=0;i<n;i++)
+			pred[i]= 0;	
 	}
 	
 	// atualizacao da distancia, da prioridade, e do predecessor de um no
-	void update(int y, int x) {
-		throw new Error("para completer");
+	void update(int y, int x) { //distancia -> origem
+		int custoAtual = dist[y];
+		int novoCusto = dist[x] + g.value(x,y);
+		if(novoCusto < custoAtual){
+			dist[y] = novoCusto;
+			naoacomodados.add(new Node(y, novoCusto));
+		}
+			
 	}
 	
 	// retorna o próximo nó a ser acomodado
 	int nextNode() {
-		throw new Error("para completer");
+		int menor = naoacomodados.pull();
+		if(settled[menor] == false)
+			return menor;
+		else{
+			//percorrer até encontrar um nó que não esteja acomodado
+		}
+		if(naoacomodados.isEmpty())
+			return -1;
 	}
 	
 	// uma etapa do algoritmo de Dijkstra
