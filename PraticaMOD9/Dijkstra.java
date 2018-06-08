@@ -52,6 +52,7 @@ public class Dijkstra {
 	}
 	
 	// uma etapa do algoritmo de Dijkstra
+	//parar ao acomodar o no de destino e caso a lista de naoacomodados seja vazia
 	int oneStep() {
 		int noAtual = nextNode();
 		settled[noAtual] = true;
@@ -64,7 +65,10 @@ public class Dijkstra {
 	
 	// algoritmo de Dijsktra completo
 	int compute() {
-		throw new Error("para completar");
+		while(oneStep() != -1 && oneStep() != source){
+			oneStep();
+		}
+		return dist[dest];
 	}
 	
 	// desacelera o visualizador
