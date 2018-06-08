@@ -53,7 +53,13 @@ public class Dijkstra {
 	
 	// uma etapa do algoritmo de Dijkstra
 	int oneStep() {
-		throw new Error("para completar");
+		int noAtual = nextNode();
+		settled[noAtual] = true;
+		ArrayList<Integer> vizinhos = g.successors(noAtual);
+		for(){
+			update(i,noAtual);
+		}
+		return noAtual;
 	}
 	
 	// algoritmo de Dijsktra completo
