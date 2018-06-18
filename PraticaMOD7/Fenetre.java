@@ -1,11 +1,7 @@
-
+package projeto.pkg7;
 import java.awt.*;
 import java.awt.event.*;
 
-/**
- * @author C. Durr (2008), Luca Castelli Aleardi (INF421, 2013, Ecole Polytechnique) Provides methods for testing operations on ordered sets
- * (implementation based on binary search trees)
- */
 class DArbre {
 
     static final int d = 6, rad = 1;
@@ -28,7 +24,7 @@ class DArbre {
         if (a == null) {
             return null;
         } else {
-            return new DArbre(copyArbre(a.esq), "" + a.value, a.cor == Aa.R ? Color.red : Color.black, copyArbre(a.dir));
+            return new DArbre(copyArbre(a.esq), "" + a.valor, a.cor == Aa.R ? Color.red : Color.black, copyArbre(a.dir));
         }
     }
 
@@ -79,6 +75,10 @@ class Fenetre extends Canvas {
             }
         });
         f.setVisible(true);
+    }
+
+    Fenetre(Aa a) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     public void paint(Graphics g) {
