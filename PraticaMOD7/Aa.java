@@ -27,6 +27,9 @@ public class Aa {
         return resposta;
     }
     static Aa rodeDir(Aa x){
+        if(x.esq==null || x.esq.cor!=R){
+            return x;
+        }
         Aa resultado = new Aa(x.esq.valor, x.cor, x.esq.esq, 
                 new Aa(x.valor,x.esq.cor,x.esq.dir,x.dir));
         return resultado;
@@ -34,6 +37,15 @@ public class Aa {
         //return x;
     }
     static Aa rodeEsq(Aa x){
+        if(x.dir==null){
+            return x;
+        }else if(x.dir.dir==null){
+            return x;
+        }else if(x.dir.cor!=R){
+            return x;
+        }else if(x.dir.dir.cor!=R){
+            return x;
+        }
         Aa resultado =  new Aa(
                             x.dir.valor, 
                             R,
@@ -47,6 +59,28 @@ public class Aa {
         resultado.dir.cor = N;
         return resultado;
     }
+    static Aa insere(Aa a,int i){
+       if(a==null){
+           a = new Aa(i, R, null, null);
+           return a;
+       }else{
+                a.esq = insere(a.esq, i);
+                a = rodeDir(a);
+                a = rodeEsq(a);
+                return a;
+           
+       }
+      
+        
+        //return null;
+    }
+    static Aa insereECorrigeRaiz(Aa a,int i){
+        a = insere(a,i);
+        if(a.cor==R){
+            a.cor = N;
+        }
+        return a;
+    }
     
     public static void main (String [] args) {
 //        Aa a = new Aa (3, N,
@@ -59,13 +93,5 @@ public class Aa {
 //        null,
 //        new Aa (11, R, null, null))));
 //        System.out.println (infixe(a
-        Aa a = new Aa (4, R,
-            new Aa (2, R,
-            new Aa (1, N, null, null),
-            new Aa (3, N, null, null)),
-            new Aa (5, N, null, null));
-        Fenetre x = new Fenetre(a,"aa");
-        a = rodeDir(a);
-        x = new Fenetre(a,"bbb");
     }
 }
