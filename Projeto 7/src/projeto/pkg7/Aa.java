@@ -64,16 +64,24 @@ public class Aa {
            a = new Aa(i, R, null, null);
            return a;
        }else{
+            if(i<a.valor){
                 a.esq = insere(a.esq, i);
                 a = rodeDir(a);
                 a = rodeEsq(a);
                 return a;
+            }
+            else{
+                a.dir = insere(a.dir, i);
+                a = rodeDir(a);
+                a = rodeEsq(a);
+                return a;
+            }
            
        }
       
-        
         //return null;
     }
+    
     static Aa insereECorrigeRaiz(Aa a,int i){
         a = insere(a,i);
         if(a.cor==R){
@@ -81,17 +89,33 @@ public class Aa {
         }
         return a;
     }
+    static int nivel(Aa a){
+        if(a==null){
+            return 0;
+        }else if(a.cor==R){
+            return 0 + nivel(a.esq);
+        }else{
+            return 1 + nivel(a.esq);
+        }
+        //return 0;
+    }
+    static boolean testSubArvoreAa(Aa a,int n, boolean podeSerVermelha){
+        if(a!=null){
+            if(a.cor==R && podeSerVermelha==false){
+                return false;
+            }else if(a.cor==R){
+                return testSubArvoreAa(a.esq, n, false)&&
+                        testSubArvoreAa(a.dir, n, false);
+            }else{
+                return testSubArvoreAa(a.esq, n-1, false)&&
+                        testSubArvoreAa(a.dir, n-1, true);
+            }
+        }else{
+            return a==null&&n==0;
+        }
+    }
     
-    public static void main (String [] args) {
-//        Aa a = new Aa (3, N,
-//        new Aa (1, N, null, null),
-//        new Aa (8, R,
-//        new Aa (5, N,
-//        null,
-//        new Aa (6, R, null, null)),
-//        new Aa (9, N,
-//        null,
-//        new Aa (11, R, null, null))));
-//        System.out.println (infixe(a
+    static boolean testeArvoreAa(Aa a) {
+        return testSubArvoreAa(a, nivel(a), false);
     }
 }
